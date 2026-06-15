@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h2>Search Lost Items</h2>
+
+    <form method="POST">
+
+        <label>Enter Item Name:</label>
+
+        <input type="text" name="item_name" required>
+
+        <button type="submit">Search</button>
+
+    </form>
+
+    <br>
+
+    {% if items %}
+
+    <table border="1">
+
+        <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Status</th>
+        </tr>
+
+        {% for item in items %}
+
+        <tr>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[6] }}</td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    {% endif %}
+
+</body>
+</html>

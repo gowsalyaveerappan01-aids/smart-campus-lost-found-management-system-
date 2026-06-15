@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Claims</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h2>Claim Requests</h2>
+
+    <table border="1">
+
+        <tr>
+            <th>Claim ID</th>
+            <th>User Name</th>
+            <th>Item Name</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for claim in claims %}
+
+        <tr>
+            <td>{{ claim['claim_id'] }}</td>
+            <td>{{ claim['name'] }}</td>
+            <td>{{ claim['item_name'] }}</td>
+            <td>{{ claim['claim_status'] }}</td>
+
+            <td>
+
+                <a href="{{ url_for('approve_claim', claim_id=claim['claim_id']) }}">
+                    <button>Approve</button>
+                </a>
+
+                <a href="{{ url_for('reject_claim', claim_id=claim['claim_id']) }}">
+                    <button>Reject</button>
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>

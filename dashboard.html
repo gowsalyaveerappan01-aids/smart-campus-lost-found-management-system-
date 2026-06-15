@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Welcome Heading -->
+    <div class="welcome-title">
+        Welcome to Smart Campus Lost &amp; Found Management System
+    </div>
+
+    <!-- Dashboard Heading -->
+    <h1 class="dashboard-title">Student Dashboard</h1>
+
+    <div class="dashboard-container">
+
+        <a href="{{ url_for('lost_item') }}">
+            <button>Report Lost Item</button>
+        </a>
+
+        <a href="{{ url_for('found_item') }}">
+            <button>Report Found Item</button>
+        </a>
+
+        <a href="{{ url_for('view_lost_items') }}">
+            <button>View Lost Items</button>
+        </a>
+
+        <a href="{{ url_for('view_found_items') }}">
+            <button>View Found Items</button>
+        </a>
+
+        <a href="{{ url_for('search_item') }}">
+            <button>Search Item</button>
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            <button>Logout</button>
+        </a>
+
+    </div>
+
+</body>
+</html>

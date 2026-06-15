@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="stats-container">
+
+    <div class="stat-card">
+        <h3>Total Users</h3>
+        <p>{{ total_users }}</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Lost Items</h3>
+        <p>{{ total_lost }}</p>
+    </div>
+
+    <div class="stat-card">
+        <h3>Found Items</h3>
+        <p>{{ total_found }}</p>
+    </div>
+
+</div>
+
+
+    <div class="dashboard-container">
+        <a href="/view_lost_items">
+            <button>View Lost Items</button>
+        </a>
+
+        <a href="/view_found_items">
+            <button>View Found Items</button>
+        </a>
+
+        <a href="{{ url_for('view_claims') }}">
+            <button>View Claims</button>
+        </a>
+
+        <a href="/logout">
+            <button>Logout</button>
+        </a>
+    </div>
+
+</body>
+</html>

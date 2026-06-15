@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Found Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h2>Found Items List</h2>
+
+    <table border="1">
+        <tr>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Date Found</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        {% for item in items %}
+        <tr>
+            <td>{{ item['item_name'] }}</td>
+            <td>{{ item['category'] }}</td>
+            <td>{{ item['description'] }}</td>
+            <td>{{ item['location'] }}</td>
+            <td>{{ item['date_found'] }}</td>
+            <td>{{ item['status'] }}</td>
+
+            <td>
+                <a href="{{ url_for('delete_found_item', item_id=item['found_id']) }}"
+                   onclick="return confirm('Are you sure you want to delete this item?')">
+                    <button>Delete</button>
+                </a>
+
+                {% if item['status'] == 'Available' %}
+                    <a href="{{ url_for('claim_item', found_id=item['found_id']) }}">
+                        <button>Claim</button>
+                    </a>
+                {% else %}
+                    <span>Already Claimed</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+</body>
+</html>
